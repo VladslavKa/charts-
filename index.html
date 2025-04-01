@@ -6,19 +6,23 @@
   <title>RTS Dashboard</title>
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%;
-      background: transparent;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: white;
     }
+
     iframe {
       width: 100vw;
       height: 100vh;
       border: none;
     }
+
     #fake-cursor {
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background: transparent; /* 👈 робить курсор невидимим */
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
