@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="300">
+  <title>RTS Dashboard</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: #000;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="https://rts-dashboard-cpcmyvgmdewmg7mn.nexcore.team/"></iframe>
+  <script>
+    setInterval(() => {
+      const event = new MouseEvent('mousemove', {
+        bubbles: true,
+        cancelable: true,
+        clientX: Math.random() * window.innerWidth,
+        clientY: Math.random() * window.innerHeight
+      });
+      document.dispatchEvent(event);
+    }, 300000);
+  </script>
+</body>
+</html>
