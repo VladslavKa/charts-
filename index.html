@@ -2,7 +2,7 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="300">
+  <meta http-equiv="refresh" content="10">
   <title>RTS Dashboard</title>
   <style>
     html, body {
@@ -14,20 +14,42 @@
       height: 100vh;
       border: none;
     }
+    #fake-cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      transition: top 0.5s ease, left 0.5s ease;
+    }
   </style>
 </head>
 <body>
+  <div id="fake-cursor"></div>
   <iframe src="https://rts-dashboard-cpcmyvgmdewmg7mn.nexcore.team/"></iframe>
+
   <script>
+    const cursor = document.getElementById("fake-cursor");
+
     setInterval(() => {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+
+      cursor.style.left = `${x}px`;
+      cursor.style.top = `${y}px`;
+
       const event = new MouseEvent('mousemove', {
         bubbles: true,
         cancelable: true,
-        clientX: Math.random() * window.innerWidth,
-        clientY: Math.random() * window.innerHeight
+        clientX: x,
+        clientY: y
       });
       document.dispatchEvent(event);
-    }, 300000);
+    }, 10000); // кожні 10 сек
   </script>
 </body>
 </html>
